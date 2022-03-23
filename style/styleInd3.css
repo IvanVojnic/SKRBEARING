@@ -1,0 +1,979 @@
+html, body{
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-image: url('../images/background.jpg');
+    background-size: cover;
+    background-position: 0 0;
+    background-attachment: fixed;
+    font-family: Arial, Tahoma, Verdana, sans-serif;
+    user-select: none;
+}
+
+main{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/***********************************************
+*********************NAVBAR*********************
+***********************************************/
+
+.navbar {
+    margin-bottom: 20px;
+}
+
+.telNumber{
+    margin-left: 20px;
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: 0.4s;
+
+}
+
+.telNumber:hover{
+    text-decoration: none;
+    color: #F10000;
+}
+
+.telNumber img{
+    max-width: 30px;
+    margin-right: 20px;
+}
+
+.bg-dark {
+    background-color: #1F1F1F !important;
+}
+
+.navbar-brand {
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.dropdownSearchButton {
+    display: block;
+    text-decoration: none;
+    background-color: transparent;
+    padding: 0.5rem 0rem;
+    color: #8C8C8C;
+}
+
+.dropdownSearchButton:hover {
+    color: #bbbbbb;
+    cursor: pointer;
+}
+
+.dropdownListInfo {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 10rem;
+    padding: 0.5rem 0;
+    margin: 0.125rem 0 0;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0.25rem;
+}
+
+.dropdown-itemInfo {
+    display: block;
+    width: 100%;
+    padding: 0.25rem 1.5rem;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.my-2 {
+    margin-bottom: .5rem!important;
+}
+
+.form-inline {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.navbar-toggle-icon img {
+    max-width: 25px;
+}
+
+.navbar-toggler {
+    transition-duration: 1.0s;
+}
+
+.navbar-toggler:focus {
+    outline: none !important;
+}
+
+.navbar-toggler:hover {
+    outline: 1px dotted !important;
+    outline: 5px auto -webkit-focus-ring-color !important;
+}
+
+span.dropdownSearch {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.navbar-collapse{
+    justify-content:flex-end;
+    transition: .5s;
+}
+
+
+/**********************************************
+****************POPUP***CART*******************
+ *********************************************/
+.cartMobile{
+    display: none;
+}
+/*^^^^^^^^^^^^^^^^^^^^^^^^^^^1^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+.cartLink {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#myCart{
+    color: #8C8C8C;
+}
+
+#myCart:hover{
+    color: #bbbbbb;
+    cursor: pointer;
+}
+/*^^^^^^^^^^^^^^^^^^^^^^^^^^^1^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+
+
+/*^^^^^^^^^^^^^^^^^^^^^^^^^^^2^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+.cartLink .popupCartBox {
+    visibility: hidden;
+    width: auto;
+    background-color: #f60000;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+    left: 100%;
+    bottom: -6%;
+}
+
+
+.countItemsCart{
+    position: absolute;
+    height: 45%;
+    width: 45%;
+    text-align: center;
+    top: 1%;
+    right: 5%;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 50%;
+    color: #000000;
+    padding: 0px;
+}
+/*^^^^^^^^^^^^^^^^^^^^^^^^^2^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+
+.cartLink .popupCartBox::after {
+    content: "";
+    position: absolute;
+    top: 30%;
+    left: -25%;
+    margin-left: -5px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: #f60000 transparent transparent transparent;
+    transform: rotateZ(90deg);
+}
+
+/*^^^^^^^^^^^^^^^^^^^^^^^^^^^3^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+.popupCartImg{
+    width: 45px;
+}
+/*^^^^^^^^^^^^^^^^^^^^^^^^^^^3^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
+
+/*************************************************
+********************SEARCH************************
+*************************************************/
+.dropdownSearchBox{
+    border-top: 1px solid #FFFFFF;
+    background-color: #1F1F1F;
+    min-height: 300px;
+    padding: 1%;
+    z-index: 6;
+    width: 100%;
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 6;
+    transition: .5s;
+}
+
+.dropdownSearchTitleBox{
+    color:rgb(245, 244, 255);
+    font-size: 1.4rem;
+    margin-bottom: 5%;
+    display: inline-flex;
+}
+
+.BlockTitle{
+    font-size: calc(18px + 8 * (100vw / 1535));
+
+}
+
+.imgClose{
+    height: 13%;
+    border: 1px solid #1F1F1F;
+    position: absolute;
+    z-index: 6;
+    top: 2%;
+    right: 2%;
+    transition: 0.5s;
+}
+
+.imgClose:hover{
+    border-radius: 5px;
+    border: 1px solid #b7e6ee;
+}
+
+.optionsBox{
+    display: flex;
+    flex-direction: column;
+}
+
+.listParametrs{
+    height: 100%;
+}
+
+.listParametrs select{
+    margin-bottom: 5%;
+    width: 50%;
+}
+
+.InputParametrs div{
+    margin-bottom: 5%;
+}
+
+.InputParametrs label{
+    color: #ffffff;
+    margin-right: 3%;
+    margin-bottom: 0;
+}
+
+.InputParametrs input{
+    width: 40%;
+}
+
+.buttonSearchBox{
+    display: inline-flex;
+
+}
+
+.buttonSearchBox input{
+    background-color: #d85b08;
+    color: #fff;
+    border: 2px solid #1F1F1F;
+    border-radius: 5px;
+}
+
+#buttonSearch:hover{
+    border: 2px solid #000;
+}
+
+#buttonReset:hover{
+    border: 2px solid #000;
+}
+
+/*************************************************
+****************MAIN**SECTION*********************
+*************************************************/
+
+section.mainBlock {
+    flex: 1 0 auto;
+    background-color: #DDDDDD;
+    border-radius: 20px 20px 0 0;
+    padding: 0;
+    padding-bottom: 2rem;
+}
+
+.dropdown-item{
+    cursor: pointer;
+}
+
+/************NAVIGATION***INFO*******************/
+
+li.main-nav-item {
+    background-color: #B7B7B7;
+}
+
+#buttonCatalogOpen {
+    border-radius: 20px 0 0 0;
+}
+
+#aboutPurchase {
+    border-radius: 0 20px 0 0;
+}
+
+li.main-nav-item:hover {
+    background-color: #a7a7a7 !important;
+}
+
+.dropdown-menu {
+    width: auto !important;
+}
+
+#CatalogList{
+    width: auto !important;
+}
+
+#catalogDropdown:hover {
+    color: #3B56B3 !important;
+}
+
+a.nav-link, span.nav-link{
+    color: #00f;
+}
+
+/************************************************
+***************MAIN***ITEM***********************
+ ***********************************************/
+
+.mainBox{
+    margin: 1% 3% 0% 3%;
+}
+
+.ItemBox{
+    margin: 0!important;
+    padding: 0px 20px;
+    background: #FFFFFF;
+    border: 1px solid #133a5e;
+    border-radius: 5px;
+}
+
+/******************IMG***ITEM*******************/
+* {box-sizing: border-box;}
+
+.itemImg {
+    position:relative;
+    width: 100%;
+    height: fit-content;
+    max-width: 450px;
+}
+
+.img-magnifier-glass {
+    position: absolute;
+    z-index: 5;
+    border: 3px solid #000;
+    border-radius: 50%;
+    cursor: none;
+    /*Set the size of the magnifier glass:*/
+    width: 100px;
+    height: 100px;
+}
+/************************************************/
+
+.titleItem{
+    margin: 0 0 4% 0;
+    border-bottom: 1px solid #ebebeb;
+}
+
+.titleItem h3{
+    font-size: 1.3rem;
+}
+
+.infoBox{
+    border-left: 1px solid #9d9d9d;
+    padding: 1%;
+}
+
+.infoParamTabs{
+    height: auto;
+    background: #F1F1F1;
+    padding: 0;
+    border: 1px solid #ccc;
+}
+
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.infoParamTabs button {
+    background-color: #B7B7B7;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 1.2rem;
+}
+
+/* Change background color of buttons on hover */
+.infoParamTabs button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.infoParamTabs button:focus {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabContent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+    position: relative;
+}
+
+/* Style the close button */
+.topRight {
+   cursor: pointer;
+   position: absolute;
+   top: 5px;
+   right: 5px;
+   opacity: 0.7;
+}
+
+.topRight:hover {
+    opacity: 1;
+}
+
+.tabContent {
+    animation: fadeEffect 1s; /* Fading effect takes 1 second */
+}
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.certainInfoSizeBox{
+    margin-bottom: 2%;
+}
+
+.certainInfoSizeBox span{
+    font-size: 1.1rem;
+}
+
+.certainGoodsInfoSizeTitle{
+    color: #505050;
+}
+
+.certainInfoSize{
+    color: #000000;
+    font-weight: bold;
+}
+/*******************BUTTON***********************/
+.buttonAddToCardBox{
+    border-bottom: 1px solid #ebebeb;
+    padding: 24px;
+}
+
+.buttonBox {
+    width: 60%;
+    margin: 0 0 0 0;
+    align-items: center;
+    position: relative;
+    padding: 0!important;
+}
+
+.minus, .plus{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #bdc2c2;
+    width: 25.5%;
+    color: #747777;
+    cursor: pointer;
+    border-radius: 15px;
+    box-shadow: 0 4px #999;
+    -webkit-user-select: none;
+
+}
+
+.minus:hover, .plus:hover{
+    color: #000000;
+    background: #828585;
+}
+
+.minus:active, .plus:active {
+    background: #828585;
+    box-shadow: 0 1px #666;
+    transform: translateY(4px);
+}
+
+.countOfItems_input{
+    width: 30.5%;
+    background: #a4a8a8;
+    border: none;
+    text-align: center;
+}
+
+.countOfItems_input::-webkit-inner-spin-button,
+.countOfItems_inputafafa::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.buttonAddToCard{
+    display: inline-block;
+    font-size: 16px;
+    font-size: 1rem;
+    color: #201600;
+    border: 1px solid #201600;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 10px 30px;
+    border-radius: 25px;
+    box-sizing: border-box;
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color .2s,color .2s,border-color .2s;
+    text-align: center;
+    display: block;
+    width: 100%;
+    background: #ffe743;
+    border: 1px solid #ffe743;
+}
+
+.buttonAddToCard:hover{
+    border: 1px solid #050101;
+    background: #e3c738;
+}
+/************************************************/
+
+
+/*************************************************
+**********************FOOTER**********************
+*************************************************/
+
+.footer{
+    flex: 0 0 auto;
+    padding: 1.5%;
+    width: 100%;
+    height: auto;
+    background-color: #182B34;
+    position: relative;
+}
+
+.NavRow{
+    height: 65%;
+    max-height: 60px;
+    margin-bottom: 3%;
+}
+
+.footInfo{
+    height: 35%;
+}
+
+.CompanyName{
+    color: #ffffff;
+    font-size: calc(15px + 20 * (100vw / 1535));
+    width: 100%;
+    display: flex;
+    align-item1s: flex-end;
+}
+
+.footInfo a{
+    text-decoration: none;
+    color: rgb(233, 230, 255);
+    font-size: calc(10px + 6 * (100vw / 1535));
+
+}
+
+.footNavItem{
+    align-items: center;
+}
+
+.footNavItemDescript:hover{
+    color:#6495ED;
+    transition: .3s;
+}
+
+.footNav{
+    justify-content: flex-end;
+}
+
+.footNav a{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.footNav span{
+    font-size: calc(12px + 6 * (100vw / 1535));
+}
+
+.InfoBeetwiner{
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+.footNav img{
+    height: 90%;
+    width: 90%;
+    margin-bottom: -5px;
+}
+
+.footNav .footNavItemDescript{
+    text-align: center;
+}
+
+#cartBox{
+    margin-left: 5%;
+}
+
+#deliveryBox{
+    margin-left: 5%;
+}
+
+
+/*************************************************
+********************ADAPTIV***********************
+*************************************************/
+
+@media (max-width: 1299.98px) {
+    .navbar .container, .navbar .container-fluid, .navbar .container-sm, .navbar .container-md, .navbar .container-lg, .navbar .container-xl .navbar .container .navMenuTEST{
+        justify-content: space-around;
+    }
+    .navbar-collapse{
+        flex-grow: 0;
+    }
+}
+
+@media (max-width: 1199.98px) {
+    .NavRow{
+        margin-bottom: 4%;
+    }
+    .provideImageBox{
+        width: calc(100% / 3 - 6em);
+    }
+    .infoParamTabs button{
+        font-size: 1rem;
+    }
+    .titleItem h3{
+        font-size: 1rem;
+    }
+    .certainInfoSizeBox span{
+        font-size: 1rem;
+    }
+    buttonAddToCard{
+        font-size: 0.9rem;
+    }
+    .telNumber{
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 1120.98px) {
+    .telNumber{
+        margin-left: 0px;
+    }
+}
+
+@media (min-width: 992px) {
+
+    .navbar-expand-lg {
+        -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+    }
+    .navbar-expand-lg>.container {
+        -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    }
+    .navbar-expand-lg .navbar-collapse {
+        display: -ms-flexbox!important;
+        display: flex!important;
+        -ms-flex-preferred-size: auto;
+        flex-basis: auto;
+    }
+    .navbar-expand-lg .navbar-nav {
+        -ms-flex-direction: row;
+        flex-direction: row;
+    }
+    .mb-md-0,
+    .my-md-0 {
+        margin-bottom: 0!important;
+    }
+
+    .dropdownSearchButton {
+        padding: 0.5rem 1rem !important;
+    }
+    .optionsBox{
+        display: flex;
+        flex-direction: row;
+    }
+
+
+}
+
+@media (min-width: 576px) {
+    .form-inline .form-control {
+        display: inline-block;
+        width: auto;
+        vertical-align: middle;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .navbar .container, .navbar .container-fluid, .navbar .container-sm, .navbar .container-md, .navbar .container-lg, .navbar .container-xl .navbar .container .navMenuTEST{
+        justify-content: space-between;
+    }
+    .navbar-collapse{
+        flex-grow: 1;
+    }
+    .dropdownSearchTitleBox{
+        font-size: 1.1rem;
+    }
+    .listParametrs select{
+        margin-left: 25%;
+    }
+    .imgClose{
+        top: 1%;
+        height: 6%;
+    }
+    .NavRow{
+        margin-bottom: 5%;
+    }
+    .provideImageBox{
+        width: calc(100% / 3 - 5em);
+    }
+    .titleItem{
+        margin: 5% 0 4% 0;
+    }
+    .buttonBox{
+        width: 90%;
+    }
+    .buttonAddToCard{
+        padding: 10px;
+    }
+    /*^^^^^^^^^^^^^^^^^^^^^^^^^^5^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+    .cartMobile{
+        display: inline-block;
+    }
+    .cartComp{
+        display: none;
+    }
+    /*^^^^^^^^^^^^^^^^^^^^^^^^^^^5^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+}
+
+@media (max-width: 767.98px) {
+    .NavRow{
+        margin-bottom: 6%;
+    }
+    .aboutUsList{
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+    #certificatesBox{
+        margin-bottom: 8%;
+    }
+    #instructionBox{
+        margin-bottom: 8%;
+    }
+    .provideImageBox{
+        width: calc(100% / 3 - 4em);
+    }
+    /*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^6^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+    .telNumber{
+        font-size: 0;
+    }
+    /*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^6^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+}
+
+@media (max-width: 750.98px) {
+    .infoBox{
+        border-left: none;
+    }
+    .buttonAddToCard{
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .NavRow{
+        margin-bottom: 8%;
+    }
+    .footNav img{
+        height: 64%;
+        width: 64%;
+    }
+
+    .footNavItem{
+        justify-content: center;
+    }
+    .footer{
+        padding: 0.5%;
+    }
+    .CompanyName{
+        width: 105%;
+        align-items: center;
+    }
+    .buttonAddToCard{
+        font-size: 12px;
+    }
+    .form-inline button{
+        margin-top: 1rem;
+    }
+    .cartLink{
+        font-size: 0;
+    }
+    .cartLink .popupCartBox{
+        bottom: -50%;
+    }
+    .countItemsCart{
+        font-size: 14px;
+    }
+    .cartLink .popupCartBox::after{
+        display: none;
+    }
+}
+
+@media (max-width: 522px)
+{
+    div.wrappedSection{
+        padding: 0!important;
+    }
+    div.titleBox h3:before {
+        left: 3px;
+    }
+    div.titleBox h3:after {
+        right: 3px;
+    }
+}
+
+@media (max-width: 500px)
+{
+    /*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+    .cartLink .popupCartBox{
+        left: 0%;
+    }
+    /*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+}
+
+@media (max-width: 425px)
+{
+    #CatalogList{
+        width: 20rem !important;
+    }
+    .dropdown-menu{
+        font-size: 15px;
+    }
+    .dropdown-item{
+        white-space: break-spaces;
+    }
+}
+
+@media (max-width: 404px) {
+    .thirdBlock {
+        border-radius: 0 20px 0 0;
+    }
+
+    #aboutPurchase {
+        border-radius: 0px;
+    }
+
+    .aboutUsList {
+        margin-right: 0;
+        margin-left: 0;
+        padding-left: 1%;
+        padding-right: 1%;
+    }
+    .buttonAddToCard{
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 355px){
+    .telNumber{
+        margin-left: 10px;
+    }
+    .telNumber img{
+        margin-right: 10px;
+    }
+    .buttonBox{
+        width: 100%;
+    }
+    .buttonAddToCard{
+        font-size: 10px;
+    }
+}
